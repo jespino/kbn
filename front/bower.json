@@ -1,6 +1,7 @@
 {
   "name": "kbn",
   "version": "0.0.0",
+  "homepage": "https://github.com/jespino/kbn",
   "authors": [
     "Jesús Espino <jesus.espino@kaleidos.net>"
   ],
@@ -14,5 +15,14 @@
     "app/components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "jquery": "~2.1.0",
+    "lodash": "~2.4.1",
+    "angular": "1.2.14",
+    "angular-route": "1.2.14",
+    "angular-sanitize": "1.2.14",
+    "angular-animate": "1.2.14",
+    "i18next": "~1.7.2"
+  }
 }
