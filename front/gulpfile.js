@@ -10,14 +10,21 @@ var jshint = require("gulp-jshint");
 var karma = require("gulp-karma");
 var gutil = require("gulp-util");
 
-var externalSources = [
+var externalCSS = [
+    "app/components/foundation/css/normalize.css",
+    "app/components/foundation/css/foundation.css"
+];
+
+var externalJs = [
+    "app/components/modernizr/modernizr.js",
     "app/components/jquery/dist/jquery.js",
     "app/components/lodash/dist/lodash.js",
     "app/components/angular/angular.js",
     "app/components/angular-route/angular-route.js",
     "app/components/angular-sanitize/angular-sanitize.js",
     "app/components/angular-animate/angular-animate.js",
-    "app/components/i18next/i18next.js"
+    "app/components/i18next/i18next.js",
+    "app/components/foundation/js/foundation.js"
 ];
 
 var coffeeSources = [
@@ -36,10 +43,13 @@ gulp.task("pro", ["less"], function() {
         .pipe(concat("app.js"))
         .pipe(uglify())
         .pipe(gulp.dest("app/dist/"));
-    gulp.src(externalSources)
+    gulp.src(externalJs)
         .pipe(concat("libs.js"))
         .pipe(uglify())
         .pipe(gulp.dest("app/dist/"));
+    gulp.src(externalCSS)
+        .pipe(concat("libs.css"))
+        .pipe(gulp.dest("app/dist/css/"));
 });
 
 gulp.task("coffee", function() {
@@ -64,9 +74,12 @@ gulp.task("less", function() {
 });
 
 gulp.task("libs", function() {
-    gulp.src(externalSources)
+    gulp.src(externalJs)
         .pipe(concat("libs.js"))
         .pipe(gulp.dest("app/dist/"));
+    gulp.src(externalCSS)
+        .pipe(concat("libs.css"))
+        .pipe(gulp.dest("app/dist/css/"));
 });
 
 gulp.task("lint", function() {
@@ -91,7 +104,7 @@ gulp.task("test", ["coffee", "libs", "build-tests"], function() {
 
 gulp.task("watch", function () {
     gulp.watch(["app/less/*.less", "app/less/**/*.less"], ["less"]);
-    gulp.watch(externalSources, ["libs"]);
+    gulp.watch(externalJs, ["libs"]);
     gulp.watch(["app/coffee/*.coffee", "app/coffee/**/*.coffee"], ["coffee"]);
 });
 
