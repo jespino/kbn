@@ -3,7 +3,7 @@ var coffee = require("gulp-coffee");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var connect = require("gulp-connect");
-var less = require("gulp-less");
+var sass = require("gulp-sass");
 var coffeelint = require("gulp-coffeelint");
 var recess = require("gulp-recess");
 var jshint = require("gulp-jshint");
@@ -35,9 +35,9 @@ var coffeeSources = [
 // define tasks here
 gulp.task("default", ["dev", "watch", "connect"]);
 
-gulp.task("dev", ["coffee", "less", "libs"]);
+gulp.task("dev", ["coffee", "sass", "libs"]);
 
-gulp.task("pro", ["less"], function() {
+gulp.task("pro", ["sass"], function() {
     gulp.src(coffeeSources)
         .pipe(coffee().on("error", gutil.log))
         .pipe(concat("app.js"))
@@ -66,9 +66,9 @@ gulp.task("hint", function() {
         .pipe(jshint.reporter("default"))
 });
 
-gulp.task("less", function() {
-    gulp.src("app/less/main.less")
-        .pipe(less().on("error", gutil.log))
+gulp.task("sass", function() {
+    gulp.src("app/sass/main.sass")
+        .pipe(sass().on("error", gutil.log))
         .pipe(concat("app.css"))
         .pipe(gulp.dest("app/dist/css"));
 });
@@ -86,7 +86,7 @@ gulp.task("lint", function() {
     gulp.src(coffeeSources)
         .pipe(coffeelint("coffeelint.json"))
         .pipe(coffeelint.reporter())
-    gulp.src("app/less/main.less")
+    gulp.src("app/sass/main.sass")
         .pipe(recess({strictPropertyOrder: false}))
 });
 
@@ -103,7 +103,7 @@ gulp.task("test", ["coffee", "libs", "build-tests"], function() {
 });
 
 gulp.task("watch", function () {
-    gulp.watch(["app/less/*.less", "app/less/**/*.less"], ["less"]);
+    gulp.watch(["app/sass/*.sass", "app/sass/**/*.sass"], ["sass"]);
     gulp.watch(externalJs, ["libs"]);
     gulp.watch(["app/coffee/*.coffee", "app/coffee/**/*.coffee"], ["coffee"]);
 });
