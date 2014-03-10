@@ -8,7 +8,8 @@ class Config
 
 modules = [
     'ngRoute',
-    'kbn.controllers'
+    'kbn.controllers',
+    'kbn.directives'
 ]
 
 angular.module('kbn', modules)

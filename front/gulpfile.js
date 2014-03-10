@@ -24,11 +24,13 @@ var externalJs = [
     "app/components/angular-sanitize/angular-sanitize.js",
     "app/components/angular-animate/angular-animate.js",
     "app/components/i18next/i18next.js",
-    "app/components/foundation/js/foundation.js"
+    "app/components/foundation/js/foundation.js",
+    "app/components/Sortable/Sortable.js"
 ];
 
 var coffeeSources = [
     "app/coffee/controllers.coffee",
+    "app/coffee/directives.coffee",
     "app/coffee/app.coffee"
 ];
 

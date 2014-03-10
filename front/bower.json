@@ -24,6 +24,7 @@
     "angular-sanitize": "1.2.14",
     "angular-animate": "1.2.14",
     "i18next": "~1.7.2",
-    "foundation": "~5.2.0"
+    "foundation": "~5.2.0",
+    "Sortable": "~0.1.5"
   }
 }

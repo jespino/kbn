@@ -11,10 +11,10 @@
                     <th ng-repeat="state in states">{{state.name }}</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody kbn-sortable="cards" kbn-sortable-selector=".card">
                 <tr>
                     <td ng-repeat="state in states">
-                        <div ng-repeat="card in cards[state._id]">{{ card.subject }}</div>
+                        <div class="card" ng-repeat="card in cards[state._id]">{{ card.subject }}</div>
                     </td>
                 </tr>
             </tbody>
