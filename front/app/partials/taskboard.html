@@ -12,8 +12,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr kbn-sortable="cards" kbn-sortable-selector=".card">
-                    <td ng-repeat="state in states">
+                <tr>
+                    <td ng-repeat="state in states" kbn-sortable="cards" kbn-sortable-selector=".card" kbn-sortable-item-name="card">
                         <div class="card" ng-repeat="card in cards[state._id]">{{ card.subject }}</div>
                     </td>
                 </tr>
