@@ -21,7 +21,6 @@ KbnSortableDirective = ($log, $rootScope) ->
                 $log.debug "KbnSortableDirective.onAdd"
                 item = angular.element(event.item)
                 onAdd(item.scope()[itemName], item.index(), scope)
-                item.remove()
 
             onRemove: (event) ->
                 $log.debug "KbnSortableDirective.onRemove"

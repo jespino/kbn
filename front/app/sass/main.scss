@@ -1,3 +1,27 @@
 .taskboard {
     width: 100%
 }
+
+.card {
+    width: 80px !important;
+    height: 80px;
+    border: none !important;
+    background-color: #007295;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    position: relative;
+    margin: 10px 10px 0px 10px;
+    width: 100%;
+    .bottom-bar {
+        height: 20px;
+        padding: 2px;
+        background-color: #008cba;
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        left: 0px;
+        font-weight: normal;
+    }
+}
