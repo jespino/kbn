@@ -69,7 +69,7 @@ gulp.task("hint", function() {
 });
 
 gulp.task("sass", function() {
-    gulp.src("app/sass/main.sass")
+    gulp.src("app/sass/main.scss")
         .pipe(sass().on("error", gutil.log))
         .pipe(concat("app.css"))
         .pipe(gulp.dest("app/dist/css"));
@@ -88,7 +88,7 @@ gulp.task("lint", function() {
     gulp.src(coffeeSources)
         .pipe(coffeelint("coffeelint.json"))
         .pipe(coffeelint.reporter())
-    gulp.src("app/sass/main.sass")
+    gulp.src("app/sass/main.scss")
         .pipe(recess({strictPropertyOrder: false}))
 });
 
@@ -105,7 +105,7 @@ gulp.task("test", ["coffee", "libs", "build-tests"], function() {
 });
 
 gulp.task("watch", function () {
-    gulp.watch(["app/sass/*.sass", "app/sass/**/*.sass"], ["sass"]);
+    gulp.watch(["app/sass/*.scss", "app/sass/**/*.scss"], ["sass"]);
     gulp.watch(externalJs, ["libs"]);
     gulp.watch(["app/coffee/*.coffee", "app/coffee/**/*.coffee"], ["coffee"]);
 });

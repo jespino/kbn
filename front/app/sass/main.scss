@@ -1,9 +1,11 @@
 .taskboard {
-    width: 100%
+    width: 100%;
+    td {
+        vertical-align: top;
+    }
 }
 
 .card {
-    width: 80px !important;
     height: 80px;
     border: none !important;
     background-color: #007295;
